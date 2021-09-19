@@ -1,0 +1,10 @@
+<header>
+  <h1>
+    File Manager
+  </h1>
+</header>
+
+<main>
+  <app-file-manager [treeItems]="(fileManagerService.directoryTree$ | async) || []">
+  </app-file-manager>
+</main>

@@ -1,0 +1,31 @@
+<ul class="tree-item-wrapper">
+  <li *ngFor="let treeItem of treeItems">
+    <div class="tree-item">
+      <div class="icon-wrapper">
+        <ng-container *ngIf="treeItem.type === treeItemType.Directory">
+          <ng-container *ngIf="treeItem.isLoading; else expandIcon">
+            <mat-spinner diameter="16" class="loading-spinner"></mat-spinner>
+          </ng-container>
+
+          <ng-template #expandIcon>
+            <mat-icon (click)="openDirectory(treeItem)" mat-list-icon class="icon">
+              {{ treeItem.isOpen ? 'arrow_drop_down' : 'arrow_right' }}
+            </mat-icon>
+          </ng-template>
+        </ng-container>
+      </div>
+
+      <mat-icon mat-list-icon class="icon">
+        {{ treeItem.icon }}
+      </mat-icon>
+
+      <div mat-line>
+        {{ treeItem.title }}
+      </div>
+    </div>
+
+    <ng-container *ngIf="treeItem.type === treeItemType.Directory && treeItem?.isOpen">
+      <app-file-manager [treeItems]="treeItem.children"></app-file-manager>
+    </ng-container>
+  </li>
+</ul>

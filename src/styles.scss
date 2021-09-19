@@ -1,0 +1,12 @@
+@import "scss/components/am-components/am-icons";
+@import "scss/components/am-components/am-spinners";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  background-color: #f0f2f5;
+}
